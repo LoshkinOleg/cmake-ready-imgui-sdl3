@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(imgui
-    VERSION 1.91.5
+    VERSION 1.92.8
     DESCRIPTION "Dear ImGui with SDL3 backend, CMake-ready"
     LANGUAGES CXX
 )
 
 option(IMGUI_BUILD_SDL3_RENDERER  "Build the SDL3 renderer backend"     ON)
-option(IMGUI_BUILD_SDL3_OPENGL3   "Build the SDL3 + OpenGL3 backend"    OFF)
 option(IMGUI_BUILD_DEMO           "Include imgui_demo.cpp"              ON)
 
 if(NOT TARGET SDL3::SDL3)
@@ -35,10 +34,6 @@ endif()
 
 if(IMGUI_BUILD_SDL3_RENDERER)
     list(APPEND IMGUI_SOURCES backends/imgui_impl_sdlrenderer3.cpp)
-endif()
-
-if(IMGUI_BUILD_SDL3_OPENGL3)
-    list(APPEND IMGUI_SOURCES backends/imgui_impl_opengl3.cpp)
 endif()
 
 add_library(imgui STATIC ${IMGUI_SOURCES})
