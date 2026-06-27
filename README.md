@@ -25,9 +25,11 @@ FetchContent_Declare(SDL3
 )
 FetchContent_MakeAvailable(SDL3)
 
-FetchContent_Declare(imgui
+FetchContent_Declare(
+    imgui
     GIT_REPOSITORY https://github.com/LoshkinOleg/cmake-ready-imgui-sdl3.git
-    GIT_TAG v1.92.8-0.1.0
+    GIT_TAG        5acd6de3ed4efb06d665628b01fba0fe3e63f7bc
+    GIT_SHALLOW    FALSE # Has to be FALSE to be able to use a commit SHA 
 )
 FetchContent_MakeAvailable(imgui)
 
